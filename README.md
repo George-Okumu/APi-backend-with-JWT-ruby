@@ -13,7 +13,7 @@ $ git clone repo_url
 ```
 
 ```console
-$ bundle add install
+$ bundle install
 ```
 
 If you get a gem not found error, try manually adding them to your
@@ -146,8 +146,6 @@ bcrypt_sample_digest == 'P@ssw0rd'
 # => true
 ```
 
-![mind blown](https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif)
-
 We have no way of storing instances of `BCrypt::Password` in our database.
 Instead, we're storing users' password digests **[as strings][schema]**. If we
 were to build our own `User#authenticate` method using `BCrypt`, it might look
@@ -182,8 +180,6 @@ class User < ApplicationRecord
   has_secure_password
 end
 ```
-
-![salt bae](https://media.giphy.com/media/l4Jz3a8jO92crUlWM/giphy.gif)
 
 **End of BCrypt Tangent**.
 
@@ -266,8 +262,6 @@ fetch("http://localhost:3000/api/v1/users", {
 remember to use double quotes ("") in both keys and values in the request.
 
 Important! **Make Sure You Can POST and Create a New User Before Proceeding**.
-
-![intermission](https://media.giphy.com/media/pcPs6v6fhE7Ru/giphy.gif)
 
 ### JSON Web Tokens (JWT)
 
