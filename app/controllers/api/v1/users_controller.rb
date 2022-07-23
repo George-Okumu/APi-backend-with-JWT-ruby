@@ -1,5 +1,9 @@
 class Api::V1::UsersController < ApplicationController
     skip_before_action :require_login, only: :create # here we access the create method without authorizing user
+    def profile
+        render json: { user: UserSerializer.new(current_user) }, status: :accepted
+    end
+
     def create
         @user = User.create(user_params)
 
